@@ -1,0 +1,60 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <title>{% block head_title %}{% endblock %}</title>
+  {% block extra_head %}
+  {% endblock %}
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.11.2/css/all.css">
+  <!-- Bootstrap core CSS -->
+  <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet">
+  <!-- Material Design Bootstrap -->
+  <link href="{% static 'css/mdb.min.css' %}" rel="stylesheet">
+  <!-- Your custom styles (optional) -->
+  <link href="{% static 'css/style.min.css' %}" rel="stylesheet">
+  <style>
+    div.hr {
+      margin-top: 40px;
+      margin-bottom: 40px;
+      border: 0;
+      border-top: 2px solid #eee;
+      text-align: center;
+      height: 0px;
+      line-height: 0px;
+    }
+
+    .hr-title {
+      background-color: #fff;
+      font-size: 25px;
+    }
+  </style>
+</head>
+
+<body>
+
+  {% include "quiz/navbar.html" %}
+
+  <!--Main layout-->
+  {% block content %}
+  {% endblock content %}
+
+  {% block extra_body %}
+  {% endblock %}
+  <!--Main layout-->
+
+  <!--Footer-->
+  {% include "quiz/footer.html" %}
+  <!--/.Footer-->
+
+  {% include "quiz/scripts.html" %}
+
+  {% block extra_scripts %}
+  {% endblock extra_scripts %}
+</body>
+
+</html>

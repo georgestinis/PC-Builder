@@ -1,0 +1,171 @@
+{% extends "quiz/base.html" %}
+
+{% block content %}
+<main class="mt-5 pt-5">
+    <div class="container">
+
+      <!--Section: Jumbotron-->
+      
+      <!--Section: Jumbotron-->
+
+      <!--Section: Magazine v.1-->
+      <section class="wow fadeIn">
+
+        <!--Section heading-->
+        <h2 class="h1 text-center my-5 font-weight-bold">Hottest Products</h2>
+
+        <div class='hr'>
+          <span class='hr-title'><strong>Processors</strong></span>
+        </div>
+
+        <div class="row text-left">
+          {% for item in cpu %}
+          <div class="col-lg-6 col-md-12">
+          {% if forloop.counter <= 2 %}
+            <!--Grid column-->
+            <!-- Card deck -->
+              <div class="card-deck">
+
+                <!-- Card -->
+                <div class="card mb-4">
+
+                  <!--Card image-->
+                  <div class="view overlay">
+                    <img class="card-img-top" src="https://mdbootstrap.com/img/Photos/Others/images/16.jpg"
+                      alt="Card image cap">
+                    <a href="#!">
+                      <div class="mask rgba-white-slight"></div>
+                    </a>
+                  </div>
+
+                  <!--Card content-->
+                  <div class="card-body">
+
+                    <!--Title-->
+                    <h4 class="card-title">{{ item.name }}</h4>
+                    <!--Text-->
+                    <h6 style="color: #747373;">Clock Speed: {{ item.speed }} Ghz</h6>
+                    <h6 style="color: #747373;">Πυρήνες: {{ item.cores }}, Threads: {{ item.threads }}</h6>
+                    <h6 style="color: #747373;">Τιμή: {{ item.price }}€</h6>
+                    <p class="card-text">Περιγραφή: Some quick example text to build on the card title and make up the bulk of the card's
+                      content.</p>
+                    <!-- Provides extra visual weight and identifies the primary action in a set of buttons -->
+                    <button type="button" class="btn btn-light-blue btn-md">Read more</button>
+
+                  </div>
+
+                </div>
+              </div>
+              <!-- Card -->
+            <!--Grid column-->
+          {% else %}
+              <hr>
+              <!--Small news-->
+              <div class="row">
+                <div class="col-md-3">
+
+                  <!--Image-->
+                  <div class="view overlay rounded z-depth-1">
+                    <img src="https://mdbootstrap.com/img/Photos/Others/photo11.jpg" class="img-fluid" alt="Minor sample post image">
+                    <a>
+                      <div class="mask rgba-white-slight"></div>
+                    </a>
+                  </div>
+                </div>
+
+                <!--Excerpt-->
+                <div class="col-md-9">
+                  <h5 class="dark-grey-text">
+                    <u>{{ item.name }}</u>
+                  </h5>
+                  <a>Τιμή: {{ item.price }}€, Πυρήνες: {{ item.cores }}, Threads: {{ item.threads}}
+                    <i class="fas fa-angle-right float-right"></i>
+                  </a>
+                </div>
+
+              </div>
+              {% endif %}
+          </div>
+          {% endfor %}
+        </div>
+        <div class='hr mt-5'>
+          <span class='hr-title'><strong>Graphics Cards</strong></span>
+        </div>
+        <div class="row text-left">
+          {% for item in gpu %}
+          <div class="col-lg-6 col-md-12">
+          {% if forloop.counter <= 2 %}
+            <!--Grid column-->
+            <!-- Card deck -->
+              <div class="card-deck">
+
+                <!-- Card -->
+                <div class="card mb-4">
+
+                  <!--Card image-->
+                  <div class="view overlay">
+                    <img class="card-img-top" src="https://mdbootstrap.com/img/Photos/Others/images/16.jpg"
+                      alt="Card image cap">
+                    <a href="#!">
+                      <div class="mask rgba-white-slight"></div>
+                    </a>
+                  </div>
+
+                  <!--Card content-->
+                  <div class="card-body">
+
+                    <!--Title-->
+                    <h4 class="card-title">{{ item.name }}</h4>
+                    <!--Text-->
+                    <h6 style="color: #747373;">Τύπος Μνήμης: {{ item.memoryType }}</h6>
+                    <h6 style="color: #747373;">Μνήμη: {{ item.memory }}GB</h6>
+                    <h6 style="color: #747373;">Τιμή: {{ item.price }}€</h6>
+                    <p class="card-text">Περιγραφή: Some quick example text to build on the card title and make up the bulk of the card's
+                      content.</p>
+                    <!-- Provides extra visual weight and identifies the primary action in a set of buttons -->
+                    <button type="button" class="btn btn-light-blue btn-md">Read more</button>
+
+                  </div>
+
+                </div>
+              </div>
+              <!-- Card -->
+            <!--Grid column-->
+          {% else %}
+              <hr>
+              <!--Small news-->
+              <div class="row">
+                <div class="col-md-3">
+
+                  <!--Image-->
+                  <div class="view overlay rounded z-depth-1">
+                    <img src="https://mdbootstrap.com/img/Photos/Others/photo11.jpg" class="img-fluid" alt="Minor sample post image">
+                    <a>
+                      <div class="mask rgba-white-slight"></div>
+                    </a>
+                  </div>
+                </div>
+
+                <!--Excerpt-->
+                <div class="col-md-9">
+                  <h5 class="dark-grey-text">
+                    <u>{{ item.name }}</u>
+                  </h5>
+                  <a>Τιμή: {{ item.price }}€, Μνήμη: {{ item.memory }}GB
+                    <i class="fas fa-angle-right float-right"></i>
+                  </a>
+                </div>
+
+              </div>
+              {% endif %}
+          </div>
+          {% endfor %}
+        </div>
+      </div>
+      </section>
+      <!--/Section: Magazine v.1-->
+
+
+    </div>
+</main>
+{% endblock content %}
