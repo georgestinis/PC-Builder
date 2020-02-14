@@ -93,6 +93,18 @@ MB_OC_CHOICES = (
     ('OC', 'OC')
 )
 
+QUESTION_CHOICES = (
+    ('Γενικές', 'Γενικές'),
+    ('Ερωτήσεις επεξεργαστή', 'Ερωτήσεις επεξεργαστή'),
+    ('Ερωτήσεις μητρικής', 'Ερωτήσεις μητρικής'),
+    ('Ερωτήσεις ψύξης', 'Ερωτήσεις ψύξης'),
+    ('Ερωτήσεις μνήμης', 'Ερωτήσεις μνήμης'),
+    ('Ερωτήσεις κάρτας γραφικών', 'Ερωτήσεις κάρτας γραφικών'),
+    ('Ερωτήσεις δίσκου', 'Ερωτήσεις δίσκου'),
+    ('Ερωτήσεις τροφοδοτικού', 'Ερωτήσεις τροφοδοτικού'),
+    ('Ερωτήσεις κουτιού', 'Ερωτήσεις κουτιού')
+)
+
 class Cpu(models.Model):
     name = models.CharField(max_length=50)
     brand = models.CharField(max_length=5)
@@ -190,3 +202,16 @@ class MB(models.Model):
     usb = models.IntegerField()
     def __str__(self):
         return self.name
+
+class Question(models.Model):
+    question_text = models.CharField(max_length=200)
+    tag = models.CharField(max_length=25, choices=QUESTION_CHOICES)
+    def __str__(self):
+        return self.question_text
+
+class Choice(models.Model):
+    question = models.ForeignKey(Question, on_delete=models.CASCADE, related_name='choices')
+    choice_text = models.CharField(max_length=200)
+
+    def __str__(self):
+        return self.choice_text

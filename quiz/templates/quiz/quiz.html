@@ -1,0 +1,53 @@
+{% extends "quiz/base.html" %}
+
+{% block content %}
+<main class="mt-5 pt-5 mb-5">
+<div class="container-fluid ">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            {% for question in questions %}
+            <div class="modal-header">
+                <h3><span class="label label-warning" id="qid">{{ question.pk }}</span> {{ question.question_text }}</h3>
+            </div>
+            <div class="modal-body">
+                {% for choice in question.choices.all %}
+                    <label class="element-animation1 btn btn-lg btn-primary btn-block"><div class="d-flex align-items-center btn-label"><i class="fas fa-chevron-right"></i></div> <input type="radio" name="q_answer" value="1">{{ choice.choice_text }}</label>    
+                {% endfor %}  
+                        
+                    
+                <!-- <div class="col-xs-3 col-xs-offset-5">
+                <div id="loadbar" style="display: none;">
+                        <div class="blockG" id="rotateG_01"></div>
+                        <div class="blockG" id="rotateG_02"></div>
+                        <div class="blockG" id="rotateG_03"></div>
+                        <div class="blockG" id="rotateG_04"></div>
+                        <div class="blockG" id="rotateG_05"></div>
+                        <div class="blockG" id="rotateG_06"></div>
+                        <div class="blockG" id="rotateG_07"></div>
+                        <div class="blockG" id="rotateG_08"></div>
+                    </div>
+                </div>
+
+                <div class="quiz" id="quiz" data-toggle="buttons">
+                    <label class="element-animation1 btn btn-lg btn-primary btn-block"><div class="d-flex align-items-center btn-label"><i class="fas fa-chevron-right"></i></div> <input type="radio" name="q_answer" value="1">1 One</label>
+                    <label class="element-animation2 btn btn-lg btn-primary btn-block"><div class="d-flex align-items-center btn-label"><i class="fas fa-chevron-right"></i></div> <input type="radio" name="q_answer" value="2">2 Two</label>
+                    <label class="element-animation3 btn btn-lg btn-primary btn-block"><div class="d-flex align-items-center btn-label"><i class="fas fa-chevron-right"></i></div> <input type="radio" name="q_answer" value="3">3 Three</label>
+                    <label class="element-animation4 btn btn-lg btn-primary btn-block"><div class="d-flex align-items-center btn-label"><i class="fas fa-chevron-right"></i></div> <input type="radio" name="q_answer" value="4">4 Four</label>
+                </div> -->
+            </div>
+            {% endfor %}
+            <div class="modal-footer text-muted">
+                <span id="answer"></span>
+            </div>
+        </div>
+    </div>
+</div>
+</main>
+{% endblock content %}
+{% block extra_scripts %}
+    <script>
+        $(document).ready(function () {
+        //$('#footer').addClass('fixed-bottom');
+        });
+    </script>
+{% endblock extra_scripts %}
